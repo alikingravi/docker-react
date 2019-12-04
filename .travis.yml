@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t alikingravi/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true alikingravi/docker-react npm run test
